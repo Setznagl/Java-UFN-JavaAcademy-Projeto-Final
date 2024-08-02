@@ -1,17 +1,6 @@
--- Database: Smartphone
+-- Creating smartphone Model table (Must be executed after "databaseCreationScript.sql")
 
--- DROP DATABASE IF EXISTS "Smartphone";
-
-CREATE DATABASE "Smartphone"
-    WITH
-    OWNER = postgres
-    ENCODING = 'UTF8'
-    LC_COLLATE = 'English_United States.1252'
-    LC_CTYPE = 'English_United States.1252'
-    LOCALE_PROVIDER = 'libc'
-    TABLESPACE = pg_default
-    CONNECTION LIMIT = -1
-    IS_TEMPLATE = False;
+-- This script can be used directly on PostgreSQL or here, with runner tools
 
 CREATE TABLE Model(
     ID INT PRIMARY KEY,
@@ -40,8 +29,8 @@ CREATE TABLE Model(
     Processor_Model VARCHAR(50),
 	Processor_Simple_Use BOOLEAN,
 	Processor_Common_Use BOOLEAN,
-	Processor_Gamming_Use BOOLEAN,
-	Processor_Hign_End_Use BOOLEAN,
+	Processor_Gaming_Use BOOLEAN,
+	Processor_High_End_Use BOOLEAN,
 	
 	Durability_Panda_Glass BOOLEAN,
 	Durability_Gorilla_Glass_3 BOOLEAN,
