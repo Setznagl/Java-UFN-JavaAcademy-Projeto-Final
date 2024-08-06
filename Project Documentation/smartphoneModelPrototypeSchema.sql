@@ -12,6 +12,8 @@ CREATE TABLE Model(
 	Operating_System_Support_Years INT NOT NULL ,
 	
     RAM_GB INT NOT NULL ,
+    RAM_Expansible BOOLEAN NOT NULL,
+    RAM_With_Expansible INT,
 	
     Storage_GB INT NOT NULL ,
 	
@@ -45,6 +47,7 @@ CREATE TABLE Model(
 	Durability_Water_Resistance BOOLEAN NOT NULL,
 
 	AdditionalResource_NFC BOOLEAN NOT NULL,
+    AdditionalResource_Expansible_Storage BOOLEAN NOT NULL,
 	AdditionalResource_Wireless_Charge BOOLEAN NOT NULL,
 	AdditionalResource_Reverse_Wireless_Charge BOOLEAN NOT NULL,
 	AdditionalResource_Fingerprint_Sensor BOOLEAN NOT NULL,
