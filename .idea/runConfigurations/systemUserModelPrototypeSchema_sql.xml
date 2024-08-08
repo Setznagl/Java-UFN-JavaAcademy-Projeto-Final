@@ -1,8 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="systemUserModelPrototypeSchema.sql" type="DatabaseScript" editBeforeRun="true" singleton="false" nameIsGenerated="true">
-    <script-file value="$PROJECT_DIR$/Project Documentation/systemUserModelPrototypeSchema.sql" />
-    <script-mode>FILE</script-mode>
-    <data-source id="b467ba36-c04d-46f4-b9cf-8e66c68dd972" />
-    <method v="2" />
-  </configuration>
-</component>
