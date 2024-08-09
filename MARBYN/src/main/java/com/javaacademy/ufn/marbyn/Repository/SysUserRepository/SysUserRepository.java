@@ -1,6 +1,6 @@
-package com.javaacademy.ufn.marbyn.Repository.Repository;
+package com.javaacademy.ufn.marbyn.Repository.SysUserRepository;
 
-import com.javaacademy.ufn.marbyn.Model.SysUser;
+import com.javaacademy.ufn.marbyn.Model.SysUserModel.SysUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

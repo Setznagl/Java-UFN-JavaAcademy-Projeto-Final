@@ -1,12 +1,14 @@
-package com.javaacademy.ufn.marbyn.Model;
+package com.javaacademy.ufn.marbyn.Model.SysUserModel;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@Builder
 @Entity
 @AllArgsConstructor
 public class SysUser {
@@ -20,12 +22,13 @@ public class SysUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column( updatable = true , nullable = false , unique = false , length = 30 )
+    @Column( nullable = false , length = 30 )
     private String name;
 
-    @Column( updatable = true , nullable = false , unique = false , length = 50 )
+    @Column( nullable = false , length = 50 )
     private String email;
 
-    @Column( updatable = true , nullable = false , unique = false , length = 20 )
+    @Column( nullable = false , length = 20 )
     private String password;
+
 }

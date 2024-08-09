@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres:
+    container_name: marbyn_users
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_DB=marbyn_users
+      - POSTGRES_USER=superadmin
+      - POSTGRES_PASSWORD=204060@C
+    ports:
+      - '5431:5431'
+    volumes:
+      - ./PersistanceLog/postgres-data:/var/lib/postgresql
+    command:
+      - -p 5431
