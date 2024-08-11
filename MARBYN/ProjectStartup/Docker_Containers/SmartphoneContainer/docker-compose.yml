@@ -1,15 +1,15 @@
 services:
   postgres:
-    container_name: marbyn_users
+    container_name: marbyn_smartphone
     image: postgres
     restart: always
     environment:
-      - POSTGRES_DB=marbyn_users
+      - POSTGRES_DB=marbyn_smartphone
       - POSTGRES_USER=superadmin
-      - POSTGRES_PASSWORD=204060@C
+      - POSTGRES_PASSWORD=25$121Xz
     ports:
-      - '5431:5431'
+      - '5430:5430'
     volumes:
       - ./PersistanceLog/postgres-data:/var/lib/postgresql
     command:
-      - -p 5431
+      - -p 5430
