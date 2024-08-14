@@ -1,13 +1,12 @@
 package com.javaacademy.ufn.marbyn.Model.SmartphoneModel;
 
+import com.javaacademy.ufn.marbyn.Model.SysUserModel.UserProfile;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Getter
-@Setter
+import java.util.List;
+
+@Data
 @Builder
 @Entity
 @AllArgsConstructor
@@ -16,6 +15,12 @@ public class Smartphone {
     public Smartphone(){
         //Empty constructor
     }
+
+    @OneToMany(mappedBy = "recommendation_pri")
+    List<UserProfile> primary;
+
+    @OneToMany(mappedBy = "recommendation_sec")
+    List<UserProfile> secondary;
 
     @Id
     @Column( updatable = false , nullable = false , unique = true , length = 5 )

@@ -1,13 +1,11 @@
 package com.javaacademy.ufn.marbyn.Model.SysUserModel;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Getter
-@Setter
+import java.util.List;
+
+@Data
 @Builder
 @Entity
 @AllArgsConstructor
@@ -16,6 +14,9 @@ public class SysUser {
     public SysUser() {
         //Empty constructor
     }
+
+    @OneToMany(mappedBy = "mappedUser")
+    private List<UserProfile> userProfiles;
 
     @Id
     @Column( updatable = false , nullable = false , unique = true , length = 5 )

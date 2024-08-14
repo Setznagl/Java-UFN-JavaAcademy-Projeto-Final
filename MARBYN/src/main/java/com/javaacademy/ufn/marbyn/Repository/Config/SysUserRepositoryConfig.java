@@ -27,6 +27,7 @@ public class SysUserRepositoryConfig {
     public DataSourceProperties sysuserDataSourceProperties() {  return new DataSourceProperties();  }
 
     @Bean
+    @Primary
     LocalContainerEntityManagerFactoryBean sysuserEntityManagerFactory(){
         LocalContainerEntityManagerFactoryBean sysuseremf = new LocalContainerEntityManagerFactoryBean();
         sysuseremf.setDataSource(sysuserDataSourceProperties().initializeDataSourceBuilder().build());
