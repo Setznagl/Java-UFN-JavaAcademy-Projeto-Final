@@ -1,5 +1,6 @@
 package com.javaacademy.ufn.marbyn.Repository.Config;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -27,16 +28,16 @@ public class SysUserRepositoryConfig {
 
     @Bean
     LocalContainerEntityManagerFactoryBean sysuserEntityManagerFactory(){
-        LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
-        emf.setDataSource(sysuserDataSourceProperties().initializeDataSourceBuilder().build());
-        emf.setPackagesToScan("com.javaacademy.ufn.marbyn.model.sysusermodel");
+        LocalContainerEntityManagerFactoryBean sysuseremf = new LocalContainerEntityManagerFactoryBean();
+        sysuseremf.setDataSource(sysuserDataSourceProperties().initializeDataSourceBuilder().build());
+        sysuseremf.setPackagesToScan("com.javaacademy.ufn.marbyn.model.sysusermodel");
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setShowSql(true);
         vendorAdapter.setGenerateDdl(true);
 
-        emf.setJpaVendorAdapter(vendorAdapter);
-        return emf;
+        sysuseremf.setJpaVendorAdapter(vendorAdapter);
+        return sysuseremf;
     }
 
     @Bean
