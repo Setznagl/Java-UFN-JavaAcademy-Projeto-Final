@@ -29,7 +29,9 @@ public class SmartphoneRepositoryConfig {
     LocalContainerEntityManagerFactoryBean smartphoneEntityManagerFactory(){
         LocalContainerEntityManagerFactoryBean smartphoneemf = new LocalContainerEntityManagerFactoryBean();
         smartphoneemf.setDataSource(smartphoneDataSourceProperties().initializeDataSourceBuilder().build());
-        smartphoneemf.setPackagesToScan("com.javaacademy.ufn.marbyn.model.smartphonemodel");
+        smartphoneemf.setPackagesToScan
+                ("com.javaacademy.ufn.marbyn.model.smartphonemodel",
+                        "com.javaacademy.ufn.marbyn.model.sysusermodel");
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setShowSql(true);

@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.data.jpa.repository.Query;
 
 @Data
 @Builder
@@ -15,23 +16,18 @@ public class UserProfile {
         //Empty constructor
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
     @ManyToOne
     @JoinColumn(name = "SysUser_id" , nullable = true , unique = false , updatable = false )
     private SysUser mappedUser;
 
     @ManyToOne
-    @JoinColumn(name = "recommendation_pri" , nullable = true)
-    @Column( nullable = false , unique = false , updatable = false )
-    private Smartphone recommendation_pri;
+    //@JoinColumn(name = "recommendations" , nullable = true , unique = false , updatable = false )
+    private Smartphone recommendation_devices;
 
-    @ManyToOne
-    @JoinColumn(name = "recommendation_sec" , nullable = true)
-    @Column( nullable = false , updatable = false )
-    private Smartphone recommendation_sec;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
+    //////////////////////////////////////////////////////////////////////////////
 
 }

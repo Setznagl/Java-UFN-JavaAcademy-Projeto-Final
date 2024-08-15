@@ -1,6 +1,5 @@
 package com.javaacademy.ufn.marbyn.Repository.Config;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -31,7 +30,9 @@ public class SysUserRepositoryConfig {
     LocalContainerEntityManagerFactoryBean sysuserEntityManagerFactory(){
         LocalContainerEntityManagerFactoryBean sysuseremf = new LocalContainerEntityManagerFactoryBean();
         sysuseremf.setDataSource(sysuserDataSourceProperties().initializeDataSourceBuilder().build());
-        sysuseremf.setPackagesToScan("com.javaacademy.ufn.marbyn.model.sysusermodel");
+        sysuseremf.setPackagesToScan
+                ("com.javaacademy.ufn.marbyn.model.smartphonemodel",
+                        "com.javaacademy.ufn.marbyn.model.sysusermodel");
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setShowSql(true);

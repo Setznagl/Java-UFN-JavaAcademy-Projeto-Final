@@ -15,13 +15,15 @@ public class SysUser {
         //Empty constructor
     }
 
-    @OneToMany(mappedBy = "mappedUser")
-    private List<UserProfile> userProfiles;
-
     @Id
     @Column( updatable = false , nullable = false , unique = true , length = 5 )
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @OneToMany(mappedBy = "mappedUser")
+    private List<UserProfile> userProfiles;
+
+    //////////////////////////////////////////////////////////////////////////////
 
     @Column( nullable = false , length = 30 )
     private String name;

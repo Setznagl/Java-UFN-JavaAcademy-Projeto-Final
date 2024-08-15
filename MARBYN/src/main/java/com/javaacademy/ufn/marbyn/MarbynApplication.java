@@ -4,11 +4,12 @@ import com.javaacademy.ufn.marbyn.Repository.SmartphoneRepository.SmartphoneRepo
 import com.javaacademy.ufn.marbyn.Repository.SysUserRepository.SysUserRepository;
 import com.javaacademy.ufn.marbyn.Repository.UserProfileRepository.UserProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MarbynApplication {
+public class MarbynApplication implements CommandLineRunner {
 
 	@Autowired
 	SysUserRepository sysUserRepository;
@@ -21,6 +22,11 @@ public class MarbynApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MarbynApplication.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+
 	}
 
 }

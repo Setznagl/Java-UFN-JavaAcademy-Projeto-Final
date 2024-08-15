@@ -31,7 +31,9 @@ public class UserProfileRepositoryConfig {
     LocalContainerEntityManagerFactoryBean userprofileEntityManagerFactory(){
         LocalContainerEntityManagerFactoryBean userprofileemf = new LocalContainerEntityManagerFactoryBean();
         userprofileemf.setDataSource(userprofileDataSourceProperties().initializeDataSourceBuilder().build());
-        userprofileemf.setPackagesToScan("com.javaacademy.ufn.marbyn.model.sysusermodel");
+        userprofileemf.setPackagesToScan
+                ("com.javaacademy.ufn.marbyn.model.smartphonemodel",
+                        "com.javaacademy.ufn.marbyn.model.sysusermodel");
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setShowSql(true);
