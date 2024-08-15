@@ -21,6 +21,7 @@ public class SysUser {
     private Integer id;
 
     @OneToMany(mappedBy = "mappedUser")
+    @JoinColumn(name = "SysUser_id" , nullable = true , unique = false , updatable = true )
     private List<UserProfile> userProfiles;
 
     //////////////////////////////////////////////////////////////////////////////

@@ -22,11 +22,11 @@ public class Smartphone {
     private Integer id;
 
     @OneToMany(mappedBy = "recommendation_devices")
-    List<UserProfile> primary;
+    List<UserProfile> devices;
 
     //////////////////////////////////////////////////////////////////////////////
 
-    @Column( updatable = false , nullable = false , unique = true , length =  10)
+    @Column( updatable = false , nullable = false , unique = true , length =  50)
     private String brand;
 
 }

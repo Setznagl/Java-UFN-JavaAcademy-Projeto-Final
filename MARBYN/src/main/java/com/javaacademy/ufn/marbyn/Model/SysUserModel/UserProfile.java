@@ -21,11 +21,11 @@ public class UserProfile {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "SysUser_id" , nullable = true , unique = false , updatable = false )
+    @JoinColumn(name = "SysUser_id" , nullable = true , unique = false , updatable = true )
     private SysUser mappedUser;
 
     @ManyToOne
-    //@JoinColumn(name = "recommendations" , nullable = true , unique = false , updatable = false )
+    @JoinColumn(name = "recommendations" , nullable = true , unique = false , updatable = false )
     private Smartphone recommendation_devices;
 
     //////////////////////////////////////////////////////////////////////////////
