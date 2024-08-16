@@ -4,8 +4,6 @@ import com.javaacademy.ufn.marbyn.Model.SysUserModel.UserProfile;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
-
 @Data
 @Builder
 @Entity
@@ -21,8 +19,8 @@ public class Smartphone {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToMany(mappedBy = "recommendation_devices")
-    List<UserProfile> devices;
+    @OneToOne(mappedBy = "fk_smartphone", optional = false)
+    private UserProfile fk_smartphone;
 
     //////////////////////////////////////////////////////////////////////////////
 

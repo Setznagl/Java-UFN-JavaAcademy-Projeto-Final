@@ -20,8 +20,8 @@ public class SysUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToMany(mappedBy = "mappedUser")
-    @JoinColumn(name = "SysUser_id" , nullable = true , unique = false , updatable = true )
+    @OneToMany(mappedBy = "fk_user")
+    @Column( nullable = false , length = 5 )
     private List<UserProfile> userProfiles;
 
     //////////////////////////////////////////////////////////////////////////////
@@ -29,7 +29,7 @@ public class SysUser {
     @Column( nullable = false , length = 30 )
     private String name;
 
-    @Column( nullable = false , length = 50 )
+    @Column( nullable = false , unique = true , length = 50 )
     private String email;
 
     @Column( nullable = false , length = 20 )
