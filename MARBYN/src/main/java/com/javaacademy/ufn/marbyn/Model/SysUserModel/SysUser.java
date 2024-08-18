@@ -1,5 +1,6 @@
 package com.javaacademy.ufn.marbyn.Model.SysUserModel;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,12 +17,11 @@ public class SysUser {
     }
 
     @Id
-    @Column( updatable = false , nullable = false , unique = true , length = 5 )
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToMany(mappedBy = "fk_user")
-    @Column( nullable = false , length = 5 )
+    @JsonManagedReference
+    @OneToMany(mappedBy = "fk_user" , fetch = FetchType.EAGER)
     private List<UserProfile> userProfiles;
 
     //////////////////////////////////////////////////////////////////////////////
@@ -29,7 +29,7 @@ public class SysUser {
     @Column( nullable = false , length = 30 )
     private String name;
 
-    @Column( nullable = false , unique = true , length = 50 )
+    @Column( nullable = false /*, unique = true*/ , length = 50 )
     private String email;
 
     @Column( nullable = false , length = 20 )

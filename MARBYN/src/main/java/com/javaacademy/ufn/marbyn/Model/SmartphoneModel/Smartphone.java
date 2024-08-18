@@ -1,5 +1,7 @@
 package com.javaacademy.ufn.marbyn.Model.SmartphoneModel;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.javaacademy.ufn.marbyn.Model.SysUserModel.SysUser;
 import com.javaacademy.ufn.marbyn.Model.SysUserModel.UserProfile;
 import jakarta.persistence.*;
 import lombok.*;
@@ -15,16 +17,17 @@ public class Smartphone {
     }
 
     @Id
-    @Column( updatable = false , nullable = false , unique = true , length = 5 )
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne(mappedBy = "fk_smartphone", optional = false)
-    private UserProfile fk_smartphone;
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "userprofile_id")
+    private UserProfile fk_profiles;
 
     //////////////////////////////////////////////////////////////////////////////
 
-    @Column( updatable = false , nullable = false , unique = true , length =  50)
+    @Column( updatable = false , nullable = false /*, unique = true*/ , length =  50)
     private String brand;
 
 }
