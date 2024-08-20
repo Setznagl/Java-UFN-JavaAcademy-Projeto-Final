@@ -12,7 +12,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @SpringBootApplication
 public class MarbynApplication implements CommandLineRunner  {
@@ -29,53 +28,25 @@ public class MarbynApplication implements CommandLineRunner  {
 
 	public static void main(String[] args) { SpringApplication.run(MarbynApplication.class, args); }
 
-	public List<Smartphone> builderList(Smartphone parameter){
-		List<Smartphone> smartphoneList = new ArrayList<>();
-		smartphoneList.add(parameter);
-		return smartphoneList;
-	}
-
 	@Override
 	public void run(String... args) {
 
-		Smartphone Tsmartphone1 =
-				Smartphone.builder()
-						.brand("Motorola G04")
-						.build();
-		smartphoneRepository.save(Tsmartphone1);
+		SysUser Tuser = SysUser.builder()
+				.id(1L).name(" ").email(" ").password(" ").userProfiles(new ArrayList<>()).build();
+		//sysUserRepository.save(Tuser);
 
-		SysUser Tuser1 =
-				SysUser.builder()
-						.name("Medeia")
-						.email("Medeia@meow.com")
-						.password("123456")
-						.build();
-		sysUserRepository.save(Tuser1);
+		Smartphone Tsmartphone = Smartphone.builder()
+				.id(1L).brand("  ")
+				.build();
+		//smartphoneRepository.save(Tsmartphone);
 
-		UserProfile Tprofile1 =
-				UserProfile.builder()
-						.fk_user(Tuser1)
-						.userSmartphones(builderList(Tsmartphone1))
-						.build();
-		userProfileRepository.save(Tprofile1);
+		UserProfile Tuserprofile = UserProfile.builder()
+				.id(1L)
+				.fk_user(Tuser)
+				.fk_smartphone_id(smartphoneRepository.findById(1L).get().getId())
+				.build();
+		//userProfileRepository.save(Tuserprofile);
 
-
-		System.out.println("Test User Status");
-		System.out.println(Tuser1.getId());
-		System.out.println(Tuser1.getName());
-		System.out.println(Tuser1.getEmail());
-		System.out.println(Tuser1.getPassword());
-		System.out.println(" ");
-
-		System.out.println("Test Smartphone Status");
-		System.out.println(Tsmartphone1.getId());
-		System.out.println(Tsmartphone1.getBrand());
-		System.out.println(" ");
-
-		System.out.println("Test User Profile Status");
-		System.out.println(Tprofile1.getId());
-		System.out.println(Tprofile1.getFk_user());
-		System.out.println(" ");
-    }
+	}
 
 }

@@ -18,21 +18,21 @@ public class SysUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "fk_user" , fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "fk_user", fetch = FetchType.EAGER , cascade = CascadeType.ALL)
     private List<UserProfile> userProfiles;
 
     //////////////////////////////////////////////////////////////////////////////
 
-    @Column( nullable = false , length = 30 )
+    @Column(nullable = false, length = 30)
     private String name;
 
-    @Column( nullable = false /*, unique = true*/ , length = 50 )
+    @Column(nullable = false, unique = true, length = 50)
     private String email;
 
-    @Column( nullable = false , length = 20 )
+    @Column(nullable = false, length = 20)
     private String password;
 
 }
