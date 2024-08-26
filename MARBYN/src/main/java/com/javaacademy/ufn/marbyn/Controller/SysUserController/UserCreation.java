@@ -15,7 +15,7 @@ public class UserCreation {
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public SysUser createSysUser (@RequestBody SysUser sysUser) {
+    public SysUser createSysUser(@RequestBody SysUser sysUser) {
         return sysUserRepository.save(sysUser);
     }
 }

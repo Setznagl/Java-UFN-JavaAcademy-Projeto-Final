@@ -32,7 +32,9 @@ public class ProfileRequests {
     CollectionModel<EntityModel<UserProfile>> getAllProfiles() {
         List<EntityModel<UserProfile>> profileList = userProfileRepository.findAll().stream()
                 .map(userProfile -> EntityModel.of(userProfile,
-                        linkTo(methodOn(ProfileRequests.class).getOneProfile(Long.valueOf(userProfile.getId()))).withSelfRel(),
+                        linkTo(methodOn(ProfileRequests.class).getOneProfile(userProfile.getId(
+
+                        ))).withSelfRel(),
                         linkTo(methodOn(ProfileRequests.class).getAllProfiles()).withRel("profileList")))
                 .collect(Collectors.toList());
         return CollectionModel.of(profileList, linkTo(methodOn(ProfileRequests.class).getAllProfiles()).withSelfRel());}
