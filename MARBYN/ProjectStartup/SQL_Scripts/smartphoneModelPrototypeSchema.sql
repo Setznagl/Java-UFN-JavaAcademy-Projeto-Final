@@ -5,14 +5,14 @@
 
 CREATE TABLE Model(
     id SERIAL PRIMARY KEY,
-    Brand VARCHAR(15) NOT NULL ,
-    Model VARCHAR(15) NOT NULL ,
+    Brand VARCHAR(15) NOT NULL unique,
+    Model VARCHAR(15) NOT NULL unique,
     CommercialName VARCHAR(15) NOT NULL ,
     Operating_System VARCHAR(15) NOT NULL ,
 	Operating_System_Support_Years INT NOT NULL ,
 	
     RAM_GB INT NOT NULL ,
-    RAM_Expansible BOOLEAN NOT NULL,
+    Is_The_Ram_Expansible BOOLEAN NOT NULL,
     RAM_With_Expansible INT,
 	
     Storage_GB INT NOT NULL ,

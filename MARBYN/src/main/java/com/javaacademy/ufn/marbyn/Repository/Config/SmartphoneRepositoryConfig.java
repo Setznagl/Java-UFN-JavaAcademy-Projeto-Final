@@ -21,6 +21,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 public class SmartphoneRepositoryConfig {
 
     @Bean
+    @Qualifier("smartphoneDataSourceProperties")
     @ConfigurationProperties(prefix = "smartphone.repository")
     public DataSourceProperties smartphoneDataSourceProperties() {  return new DataSourceProperties();  }
 
@@ -33,11 +34,11 @@ public class SmartphoneRepositoryConfig {
                 ("com.javaacademy.ufn.marbyn.model.smartphonemodel",
                         "com.javaacademy.ufn.marbyn.model.sysusermodel");
 
-        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        vendorAdapter.setShowSql(true);
-        vendorAdapter.setGenerateDdl(true);
+        HibernateJpaVendorAdapter vendorAdapterSmartphone = new HibernateJpaVendorAdapter();
+        vendorAdapterSmartphone.setShowSql(true);
+        vendorAdapterSmartphone.setGenerateDdl(true);
 
-        smartphoneemf.setJpaVendorAdapter(vendorAdapter);
+        smartphoneemf.setJpaVendorAdapter(vendorAdapterSmartphone);
         return smartphoneemf;
     }
 

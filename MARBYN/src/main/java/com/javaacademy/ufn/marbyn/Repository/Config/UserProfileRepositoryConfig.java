@@ -34,11 +34,11 @@ public class UserProfileRepositoryConfig {
                 ("com.javaacademy.ufn.marbyn.model.smartphonemodel",
                         "com.javaacademy.ufn.marbyn.model.sysusermodel");
 
-        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        vendorAdapter.setShowSql(true);
-        vendorAdapter.setGenerateDdl(true);
+        HibernateJpaVendorAdapter vendorAdapterProfile = new HibernateJpaVendorAdapter();
+        vendorAdapterProfile.setShowSql(true);
+        vendorAdapterProfile.setGenerateDdl(true);
 
-        userprofileemf.setJpaVendorAdapter(vendorAdapter);
+        userprofileemf.setJpaVendorAdapter(vendorAdapterProfile);
         return userprofileemf;
     }
 

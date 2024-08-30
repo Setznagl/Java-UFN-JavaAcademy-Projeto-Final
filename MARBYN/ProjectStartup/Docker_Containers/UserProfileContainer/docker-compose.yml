@@ -1,16 +1,15 @@
 services:
   postgres:
-    container_name: marbyn_smartphone
+    container_name: marbyn_profile
     image: postgres
     restart: always
     environment:
-      - POSTGRES_DB=marbyn_smartphone
+      - POSTGRES_DB=marbyn_profile
       - POSTGRES_USER=superadmin
-      - POSTGRES_PASSWORD=25$121Xz
+      - POSTGRES_PASSWORD=28a4CeC
     ports:
-      - '5430:5430'
+      - '5433:5433'
     volumes:
       - ./PersistanceLog/postgres-data:/var/lib/postgresql
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     command:
-      - -p 5430
+      - -p 5433

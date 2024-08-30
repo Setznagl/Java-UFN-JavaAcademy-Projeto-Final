@@ -34,11 +34,11 @@ public class SysUserRepositoryConfig {
                 ("com.javaacademy.ufn.marbyn.model.smartphonemodel",
                         "com.javaacademy.ufn.marbyn.model.sysusermodel");
 
-        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        vendorAdapter.setShowSql(true);
-        vendorAdapter.setGenerateDdl(true);
+        HibernateJpaVendorAdapter vendorAdapterUser = new HibernateJpaVendorAdapter();
+        vendorAdapterUser.setShowSql(true);
+        vendorAdapterUser.setGenerateDdl(true);
 
-        sysuseremf.setJpaVendorAdapter(vendorAdapter);
+        sysuseremf.setJpaVendorAdapter(vendorAdapterUser);
         return sysuseremf;
     }
 

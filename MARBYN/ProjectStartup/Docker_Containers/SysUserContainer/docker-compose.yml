@@ -11,5 +11,6 @@ services:
       - '5431:5431'
     volumes:
       - ./PersistanceLog/postgres-data:/var/lib/postgresql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     command:
       - -p 5431

@@ -1,5 +1,6 @@
 package com.javaacademy.ufn.marbyn.Model.SysUserModel;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
@@ -20,7 +21,7 @@ public class SysUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonManagedReference
+    @JsonBackReference
     @OneToMany(mappedBy = "fk_user", fetch = FetchType.EAGER , cascade = CascadeType.ALL)
     private List<UserProfile> userProfiles;
 

@@ -6,7 +6,7 @@
 CREATE TABLE SystemUser(
     id SERIAL PRIMARY KEY,
     name VARCHAR(30) not null,
-    email VARCHAR(50) not null,
+    email VARCHAR(50) not null unique,
     password VARCHAR(20) not null
 );
 
