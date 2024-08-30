@@ -1,9 +1,10 @@
 package com.javaacademy.ufn.marbyn.Model.SysUserModel;
 
-//import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-//import org.apache.commons.lang3.builder.ToStringExclude;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.javaacademy.ufn.marbyn.Model.SmartphoneModel.Smartphone;
+/* Prevents system.out Stack Overflow */
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringExclude;
+//
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
@@ -24,19 +25,25 @@ public class UserProfile {
 
     @ManyToOne(fetch = FetchType.EAGER , cascade = CascadeType.ALL)
     @JsonManagedReference
-    /* Prevents Stack Overflow
-    @ToStringExclude */
+    /* Prevents system.out Stack Overflow */
+    @ToStringExclude
+    //
     @JoinColumn(name = "sysuser_id")
     private SysUser fk_user;
 
-    @Column(name = "fk_smartphone_id")
-    private Long fk_smartphone_id;
 
-    /*Prevents stack overflow
+    @ManyToOne(fetch = FetchType.EAGER , cascade = CascadeType.ALL)
+    @JsonManagedReference
+    @ToStringExclude
+    @JoinColumn(name = "smartphone_id")
+    private Smartphone fk_smartphone;
+
+
+    /*Prevents system.out stack overflow*/
     @Override
     public String toString() {
         return ReflectionToStringBuilder.toString(this);
     }
-    */
+    // */
 
 }

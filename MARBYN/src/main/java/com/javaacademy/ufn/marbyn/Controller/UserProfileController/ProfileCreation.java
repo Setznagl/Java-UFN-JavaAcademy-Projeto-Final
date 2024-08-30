@@ -20,7 +20,7 @@ public class ProfileCreation {
     public UserProfile createUserProfile(@RequestBody SysUser sysUser , Survey survey) {
         UserProfile tmpUserProfile = UserProfile.builder()
                 .fk_user(sysUser)
-                .fk_smartphone_id(0L)
+                //.fk_smartphone_id(0L)
                 .build();
 
         return userProfileRepository.save(tmpUserProfile);

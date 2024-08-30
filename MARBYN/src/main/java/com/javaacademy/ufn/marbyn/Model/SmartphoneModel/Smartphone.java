@@ -1,7 +1,11 @@
 package com.javaacademy.ufn.marbyn.Model.SmartphoneModel;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.javaacademy.ufn.marbyn.Model.SysUserModel.UserProfile;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Data
 @Builder
@@ -18,6 +22,10 @@ public class Smartphone {
     private Long id;
 
     //////////////////////////////////////////////////////////////////////////////
+
+    @JsonBackReference
+    @OneToMany(mappedBy = "fk_smartphone", fetch = FetchType.EAGER , cascade = CascadeType.ALL)
+    private List<UserProfile> userProfiles;
 
     @Column(updatable = false, nullable = false, unique = true, length = 20)
     private String brand;
@@ -71,7 +79,7 @@ public class Smartphone {
     private Integer Screen_FPS_Hz;
 
     @Column(updatable = false, nullable = false, length = 7)
-    private String Screen_Bright_Nits;
+    private Integer Screen_Bright_Nits;
 
     @Column(updatable = false , nullable = false , length = 5)
     private Integer Battery_Size_mAh;
@@ -79,11 +87,14 @@ public class Smartphone {
     @Column(nullable = false, length = 8)
     private String Battery_Autonomy_Hours;
 
-    @Column(updatable = false , nullable = false , length = 5)
-    private Integer Battery_Full_Charge_Hours;
+    @Column(updatable = false , nullable = false , length = 8)
+    private String Battery_Full_Charge_Hours;
 
     @Column(updatable = false , nullable = false , length = 5)
-    private Integer Battery_Charging_Potency_Watts;
+    private Long Delivered_Charging_Potency_Watts;
+
+    @Column(updatable = false , nullable = false , length = 5)
+    private Long Battery_Charging_Potency_Watts;
 
     @Column(updatable = false, nullable = false, length = 50)
     private String Processor_Model;

@@ -1,7 +1,6 @@
 package com.javaacademy.ufn.marbyn.Model.SysUserModel;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
