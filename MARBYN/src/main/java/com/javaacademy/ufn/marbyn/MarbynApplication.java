@@ -35,10 +35,9 @@ public class MarbynApplication implements CommandLineRunner {
 				.fk_user(sysUserRepository.findById(1L).get())
 				.fk_smartphone(smartphoneRepository.findById(1L).get())
 				.build();
-        //System.out.println(userProfile);
         userProfileRepository.save(userProfile);
 
-        System.out.println(userProfileRepository.findById(2L));
+        System.out.println(userProfileRepository.findById(1L));
 
     }
 }
