@@ -35,7 +35,7 @@ public class UserRequests {
         return CollectionModel.of(userList, linkTo(methodOn(UserRequests.class).getAllUsers()).withSelfRel());}
 
 
-    @GetMapping("/{id}")
+    @GetMapping("/user/{id}")
     public SysUser getOneUser(@PathVariable Long id){
         Optional<SysUser> convert = sysUserRepository.findById(id);
         return convert.orElse(null);

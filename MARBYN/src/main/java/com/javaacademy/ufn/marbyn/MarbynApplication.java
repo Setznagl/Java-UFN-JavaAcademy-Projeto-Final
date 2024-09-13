@@ -1,6 +1,5 @@
 package com.javaacademy.ufn.marbyn;
 
-import com.javaacademy.ufn.marbyn.Model.SysUserModel.UserProfile;
 import com.javaacademy.ufn.marbyn.Repository.SmartphoneRepository.SmartphoneRepository;
 import com.javaacademy.ufn.marbyn.Repository.SysUserRepository.SysUserRepository;
 import com.javaacademy.ufn.marbyn.Repository.UserProfileRepository.UserProfileRepository;
@@ -30,14 +29,14 @@ public class MarbynApplication implements CommandLineRunner {
     @Transactional
     public void run(String... args) {
 
-		UserProfile userProfile = UserProfile.builder()
-                .id(0L)
-				.fk_user(sysUserRepository.findById(1L).get())
-				.fk_smartphone(smartphoneRepository.findById(1L).get())
-				.build();
-        userProfileRepository.save(userProfile);
-
-        System.out.println(userProfileRepository.findById(1L));
+//		UserProfile userProfile = UserProfile.builder()
+//                .id(0L)
+//				.fk_user(sysUserRepository.findById(1L).get())
+//				.fk_smartphone(smartphoneRepository.findById(1L).get())
+//				.build();
+//        userProfileRepository.save(userProfile);
+//
+//        System.out.println(userProfileRepository.findById(1L));
 
     }
 }
